@@ -1,0 +1,19 @@
+import random
+print("Welcome to the Guess the Number game!")
+
+x = int(input("I'm thinking of a number between 1 and 100. Can you guess what it is?"))
+num = random.randint(1,101)
+print(num)
+while x  != num :
+    
+
+    if x > num :
+         print("Your guess is too high. Guess again.")
+   
+    elif x < num :
+         print("Your guess is too low. Guess again.")  
+    
+    x = int(input("I'm thinking of a number between 1 and 100. Can you guess what it is?"))
+    print(num)
+
+print("Congratulations! You guessed the number correctly!")  
