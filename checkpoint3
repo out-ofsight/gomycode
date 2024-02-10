@@ -1,0 +1,23 @@
+Question 1 
+L =[2,3,6]
+for i in range (0,3):
+    result = L[i]*L[i]
+
+print(result)  
+
+Question 2
+L=[(2, 5), (1, 2), (4, 4), (1, 3), (2, 1)]
+def last_element(tuple):
+    return tuple[-1]
+R=sorted(L,key=last_element)
+print(R)
+[(2, 1), (1, 2), (1, 3), (4, 4), (2, 5)]
+
+Question 3
+d1 = {'a': 100, 'b': 200, 'c':300}
+d2 = {'a': 300, 'b': 200, 'd':400}
+
+
+d3 = {key: d1.get(key, 0) + d2.get(key, 0) for key in set(d1) | set(d2) for key in set(d1) | set(d2)}
+
+print(d3)
