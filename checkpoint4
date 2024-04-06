@@ -1,0 +1,33 @@
+a=int(input("Enter the first number:") )
+b=int(input("Enter the second number:") )
+operator=input("Enter the operator (+, -, *, /):") 
+
+def sommation (a,b):
+    s = a + b
+    return s  
+
+def multiplication (a,b):
+    m=a*b
+    return m
+
+def soustraction (a,b):
+    ss=a-b
+    return ss
+
+def devision (a,b):
+    d = a/b 
+    return d
+
+if operator == '+' :    
+    s = sommation(a,b)
+    print(s)
+elif operator == '*' :
+    m = multiplication(a,b)
+    print(m)     
+elif operator == '-' :
+    ss = soustraction (a,b)
+    print(ss)
+elif operator == '/':
+    d = devision (a,b)
+    print(d)
+
