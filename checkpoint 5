@@ -1,0 +1,79 @@
+import math
+
+# Point3D Class
+class Point3D:
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+    
+    def __repr__(self):
+        return f"({self.x}, {self.y}, {self.z})"
+
+# Rectangle Class
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+    
+    def area(self):
+        return self.length * self.width
+    
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+# Circle Class
+class Circle:
+    def __init__(self, center, radius):
+        self.center = center
+        self.radius = radius
+    
+    def area(self):
+        return math.pi * (self.radius ** 2)
+    
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+    
+    def is_inside(self, point):
+        distance = math.sqrt((point[0] - self.center[0])**2 + (point[1] - self.center[1])**2)
+        return distance <= self.radius
+
+# Bank Class
+class Bank:
+    def __init__(self, balance=0):
+        self.balance = balance
+    
+    def deposit(self, amount):
+        self.balance += amount
+        return self.balance
+    
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficient funds")
+            return self.balance
+        self.balance -= amount
+        return self.balance
+
+# Create instances and test
+
+# Point3D instance
+my_point = Point3D(1, 2, 3)
+print("Point3D:", my_point)
+
+# Rectangle instance
+my_rectangle = Rectangle(4, 3)
+print("Rectangle Area:", my_rectangle.area())        # Expected: 12
+print("Rectangle Perimeter:", my_rectangle.perimeter())  # Expected: 14
+
+# Circle instance
+my_circle = Circle((0, 0), 5)
+print("Circle Area:", my_circle.area())              # Expected: 78.53981633974483 (approx)
+print("Circle Perimeter:", my_circle.perimeter())    # Expected: 31.41592653589793 (approx)
+print("Is Point Inside Circle:", my_circle.is_inside((3, 4)))  # Expected: True
+
+# Bank instance
+my_account = Bank(100)
+print("Initial Balance:", my_account.balance)        # Expected: 100
+print("Balance after Deposit:", my_account.deposit(50))  # Expected: 150
+print("Balance after Withdrawal:", my_account.withdraw(30))  # Expected: 120
+print("Balance after Excessive Withdrawal:", my_account.withdraw(200))  # Expected: "Insufficient funds" and 120
